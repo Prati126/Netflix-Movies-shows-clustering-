@@ -15,29 +15,81 @@ st.set_page_config(
 )
 
 # ---------------- LIGHT THEME ----------------
+
 st.markdown("""
 <style>
+/* Main dashboard */
 .stApp {
-    background-color: #f6f8fc;
-    color: #202938;
+    background-color: #f6f8fc !important;
+    color: #202938 !important;
 }
+
+/* Sidebar */
 [data-testid="stSidebar"] {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
 }
-h1, h2, h3 {
-    color: #e50914;
+
+[data-testid="stSidebar"] * {
+    color: #202938 !important;
 }
+
+/* Headings and regular text */
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp p,
+.stApp label,
+.stApp .stMarkdown,
+.stApp li {
+    color: #202938 !important;
+}
+
+/* KPI cards */
 [data-testid="stMetric"] {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    border: 1px solid #e4e7ef;
+    background-color: #ffffff !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    border: 1px solid #dce2ec !important;
+}
+
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] p {
+    color: #475569 !important;
+    opacity: 1 !important;
+}
+
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] div {
+    color: #111827 !important;
+}
+
+/* Tabs */
+button[data-baseweb="tab"] {
+    color: #334155 !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #e50914 !important;
+    font-weight: 700 !important;
+}
+
+/* Input fields */
+.stTextInput input,
+.stSelectbox div,
+.stMultiSelect div {
+    color: #202938 !important;
+}
+
+/* Buttons */
+.stButton button {
+    color: #ffffff !important;
+    background-color: #e50914 !important;
+    border: none !important;
+    border-radius: 8px !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🎬 Netflix Movies & TV Shows Dashboard")
-st.caption("Explore Netflix content, discover trends and group similar titles.")
 
 # ---------------- LOAD DATA ----------------
 @st.cache_data
